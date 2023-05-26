@@ -1,0 +1,28 @@
+# Trigger CI: 17
+
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+versionConstraint: '>=1.0.0'
+
+projects:
+
+  browser-package: 'packages/browser-package'
+  # Fix packemon upstream
+  # cjs-package: 'packages/cjs-package'
+  mjs-package: 'packages/mjs-package'
+
+  nuxt-app: 'apps/nuxt-app'
+  node-package: 'packages/node-package'
+
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'master'
+
+runner:
+  archivableTargets:
+    - ':format'
+    - ':lint'
+    - ':test'
+    - ':typecheck'
+  logRunningCommand: true
